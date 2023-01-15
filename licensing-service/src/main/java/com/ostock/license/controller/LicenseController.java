@@ -1,6 +1,8 @@
 package com.ostock.license.controller;
 
 import java.util.Locale;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +38,32 @@ public class LicenseController {
 		
 		License license = licenseService
 				.getLicense(licenseId, organizationId);
+		license.add(linkTo(methodOn(LicenseController.class)
+				.getLicense(organizationId, licenseId))
+				.withSelfRel(),
+				linkTo(methodOn(LicenseController.class)
+				.createLicense(organizationId, license ,null))
+				.withSelfRel(),
+				linkTo(methodOn(LicenseController.class)
+				.updateLicense(organizationId, license, null))
+				.withSelfRel(),
+				linkTo(methodOn(LicenseController.class)
+				.deleteLicense(organizationId, licenseId, null))
+				.withSelfRel()
+				);
+	 
+//		 license.add(linkTo(methodOn(LicenseController.class)
+//		           .getLicense(organizationId, license.getLicenseId()))
+//		           .withSelfRel(),
+//		           linkTo(methodOn(LicenseController.class)
+//		           .createLicense(organizationId, license, null))
+//		           .withRel("createLicense"),
+//		           linkTo(methodOn(LicenseController.class)
+//		           .updateLicense(organizationId, license, null))
+//		           .withRel("updateLicense"),
+//		           linkTo(methodOn(LicenseController.class)
+//		           .deleteLicense(organizationId, license.getLicenseId(), null))
+//		           .withRel("deleteLicense")); 
 		return ResponseEntity.ok(license);	
 	}
 	
