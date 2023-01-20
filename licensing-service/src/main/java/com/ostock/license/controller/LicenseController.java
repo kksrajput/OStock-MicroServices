@@ -43,27 +43,15 @@ public class LicenseController {
 				.withSelfRel(),
 				linkTo(methodOn(LicenseController.class)
 				.createLicense(organizationId, license ,null))
-				.withSelfRel(),
+				.withRel("createLicense"),
 				linkTo(methodOn(LicenseController.class)
 				.updateLicense(organizationId, license, null))
-				.withSelfRel(),
+				.withRel("updateLicense"),
 				linkTo(methodOn(LicenseController.class)
 				.deleteLicense(organizationId, licenseId, null))
-				.withSelfRel()
+				.withRel("deleteLicense")
 				);
 	 
-//		 license.add(linkTo(methodOn(LicenseController.class)
-//		           .getLicense(organizationId, license.getLicenseId()))
-//		           .withSelfRel(),
-//		           linkTo(methodOn(LicenseController.class)
-//		           .createLicense(organizationId, license, null))
-//		           .withRel("createLicense"),
-//		           linkTo(methodOn(LicenseController.class)
-//		           .updateLicense(organizationId, license, null))
-//		           .withRel("updateLicense"),
-//		           linkTo(methodOn(LicenseController.class)
-//		           .deleteLicense(organizationId, license.getLicenseId(), null))
-//		           .withRel("deleteLicense")); 
 		return ResponseEntity.ok(license);	
 	}
 	
