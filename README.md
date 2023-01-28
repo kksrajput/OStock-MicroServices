@@ -3,7 +3,7 @@ An Asset Management product which provides coverage for inventory, licensing, co
 
 # To Run
 clean package
-docker build
+package docker:build
 docker run --publish 8080:8080 optimagrowth/licensing-service
 
 
