@@ -1,14 +1,14 @@
 # OStock-MicroServices
-An Asset Management product which provides coverage for inventory, licensing, compliance cost and resource management
+An Asset Management product which provides coverage for inventory, licensing, compliance cost and resource managementCancel changes
 
-#To Run
+# To Run
 clean package
 docker build
 docker run --publish 8080:8080 optimagrowth/licensing-service
 
 
 
-#Licensing Service
+# Licensing Service
 Just Started with the Licensing Service-
 To Do-
 Service, apis for crud
