@@ -10,7 +10,7 @@ V1 consists of first iteration , services folder is current iteration
 Just Started with the Licensing Service-
 To Do-
 Service, apis for crud
-
+Configuration Management Service
 api examples
 --post
 http://localhost:8080/v1/organization/s/license/
